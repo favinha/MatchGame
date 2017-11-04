@@ -24,34 +24,33 @@ has players  => (
 
 
 sub add_player {
-    my ($self, $player) = @_;
-    my $players = $self->players;
-    #print "Players :", Dumper $players, "\n";
-    #print "Adding player : ", $player->name, "\n";
-    push @$players, $player;
-    $self->players($players);
+  my ($self, $player) = @_;
+  my $players = $self->players;
+  #print "Players :", Dumper $players, "\n";
+  #print "Adding player : ", $player->name, "\n";
+  push @$players, $player;
+  $self->players($players);
 }
 
 sub add_card {
-    my ($self, $card) = @_;
-    my @cards = @{$self->cards};
-    push @cards, $card;
-    $self->cards(\@cards);
+  my ($self, $card) = @_;
+  my @cards = @{$self->cards};
+  push @cards, $card;
+  $self->cards(\@cards);
 }
 
 sub add_deck {
 	my ($self, $deck) = @_;
-    my @cards = @{$self->stack};
-    push @cards, @{$deck->cards};
+  my @cards = @{$self->stack};
+  push @cards, @{$deck->cards};
 	$self->stack(\@cards);
-	
 }
 
 sub shuffle_cards {
-    my ($self) = @_;
-    my $cards = $self->stack;
-    my @deck = shuffle @$cards;
-    $self->stack(\@deck);
+  my ($self) = @_;
+  my $cards = $self->stack;
+  my @deck = shuffle @$cards;
+  $self->stack(\@deck);
 }
 
 sub pick_from_stack {
@@ -63,16 +62,16 @@ sub pick_from_stack {
 }
 
 sub last_card {
-    my ($self) = @_;
-    my @cards = @{$self->cards};
-    return $cards[-1];
+  my ($self) = @_;
+  my @cards = @{$self->cards};
+  return $cards[-1];
 }
 
 sub pickup_pile {
-    my ($self) = @_;
-    my $cards = $self->cards;
-    $self->cards([]);
-    return $cards;
+  my ($self) = @_;
+  my $cards = $self->cards;
+  $self->cards([]);
+  return $cards;
 }
 
 1;

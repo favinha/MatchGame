@@ -20,10 +20,9 @@ chomp $rule;
 die "This is not a valid option!" if $rule !~ /^(1|2|3)$/;
 say "Using rule $rule";
 
-my $game = MatchGame->new( rule => $rule, decks => $decks);  ## Its going to be HAL9000 VS DeepBlue ...
+my $game = MatchGame->new( rule => $rule, decks => $decks);  ##
 
 $game->start();
 
+
 1;
-
-
